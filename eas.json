@@ -14,14 +14,6 @@
       },
       "distribution": "internal"
     },
-    "staging": {
-      "ios": {
-        "autoIncrement": "version"
-      },
-      "android": {
-        "gradleCommand": ":app:assembleRelease"
-      }
-    },
     "production": {
       "android": {
         "buildType": "apk"
