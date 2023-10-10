@@ -3,16 +3,31 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "update": "npx npm-check --skip-unused -u",
+    "start": "expo start -c",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web",
+    "setup": "npm run clean && rm -rf node_modules && rm package-lock.json || true && npm i && npm run install:ios",
+    "clean": "watchman watch-del-all && rm -rf /Volumes/SSD2/build/*",
+    "local:preview": "npm run clean && eas build --profile preview --platform ios --local --clear-cache",
+    "fix": "npx expo install --fix",
+    "pre": "npx expo prebuild --clean",
+    "install:ios": "npm run pre && npx pod-install ios"
   },
   "dependencies": {
+    "@react-navigation/drawer": "6.6.4",
+    "@react-navigation/native": "6.1.8",
+    "eas-cli": "5.4.0",
     "expo": "~49.0.13",
+    "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
-    "react-native": "0.72.5"
+    "react-native": "0.72.5",
+    "react-native-screens": "~3.22.0",
+    "react-native-safe-area-context": "4.6.3",
+    "react-native-reanimated": "3.5.4",
+    "react-native-gesture-handler": "~2.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
